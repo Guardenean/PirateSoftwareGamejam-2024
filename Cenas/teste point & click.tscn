@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://c6odju0c864x0"]
+
+[ext_resource type="Texture2D" uid="uid://dyq0117fjo0bc" path="res://PirateSoftwareGamejam-2024/Assets/Carteado.jpg" id="1_rkdai"]
+[ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://PirateSoftwareGamejam-2024/Assets/icon.svg" id="2_vv1ku"]
+[ext_resource type="Script" path="res://PirateSoftwareGamejam-2024/Scripts/botao.gd" id="3_b382e"]
+[ext_resource type="Shader" path="res://PirateSoftwareGamejam-2024/Assets/lanterna.gdshader" id="4_eufci"]
+[ext_resource type="Texture2D" uid="uid://bxrmx3mng5xex" path="res://PirateSoftwareGamejam-2024/Assets/Luz 2.png" id="5_wmher"]
+[ext_resource type="Script" path="res://PirateSoftwareGamejam-2024/Scripts/Lanterna.gd" id="6_45t4t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tdljq"]
+shader = ExtResource("4_eufci")
+
+[node name="FaseTeste" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_rkdai")
+
+[node name="TextureButton" type="TextureButton" parent="Background"]
+self_modulate = Color(1, 1, 1, 0.129412)
+offset_left = 371.0
+offset_top = 354.0
+offset_right = 499.0
+offset_bottom = 482.0
+scale = Vector2(0.51, 0.51)
+texture_normal = ExtResource("2_vv1ku")
+script = ExtResource("3_b382e")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="Control"]
+copy_mode = 2
+
+[node name="Sombra" type="Sprite2D" parent="Control/BackBufferCopy"]
+self_modulate = Color(0.0235294, 0.0352941, 0.152941, 1)
+texture = ExtResource("1_rkdai")
+
+[node name="Lanterna" type="Sprite2D" parent="Control/BackBufferCopy"]
+material = SubResource("ShaderMaterial_tdljq")
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_wmher")
+script = ExtResource("6_45t4t")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.605, 0.605)
+
+[connection signal="button_down" from="Background/TextureButton" to="Background/TextureButton" method="_on_button_down"]

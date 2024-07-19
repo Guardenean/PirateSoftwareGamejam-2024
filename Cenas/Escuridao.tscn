@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://0ahaj4gw025h"]
+
+[ext_resource type="Script" path="res://PirateSoftwareGamejam-2024/Scripts/Escuridao.gd" id="1_h0k2p"]
+[ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://PirateSoftwareGamejam-2024/Assets/icon.svg" id="2_wvqrg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlmcq"]
+size = Vector2(270, 542)
+
+[node name="Escuridao" type="Area2D"]
+script = ExtResource("1_h0k2p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qlmcq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.145098, 0.145098, 0.145098, 1)
+scale = Vector2(2.26563, 4.29688)
+texture = ExtResource("2_wvqrg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm3jypn17udcg"]
+
+[ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://PirateSoftwareGamejam-2024/Assets/icon.svg" id="1_txtqh"]
+[ext_resource type="PackedScene" uid="uid://tqnl75dh036q" path="res://PirateSoftwareGamejam-2024/Cenas/Player.tscn" id="2_abm1e"]
+[ext_resource type="PackedScene" uid="uid://0ahaj4gw025h" path="res://PirateSoftwareGamejam-2024/Cenas/Escuridao.tscn" id="3_qsbgr"]
+[ext_resource type="PackedScene" uid="uid://d2lpiql47hogl" path="res://PirateSoftwareGamejam-2024/Cenas/Vent.tscn" id="4_u3ilx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhfrn"]
+size = Vector2(128.224, 112)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bola" parent="." instance=ExtResource("2_abm1e")]
+position = Vector2(532, 410)
+
+[node name="Chao" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="StaticBody2D" parent="Chao"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Chao/RigidBody2D"]
+position = Vector2(562, 587)
+scale = Vector2(8.91406, 0.6875)
+texture = ExtResource("1_txtqh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chao/RigidBody2D"]
+position = Vector2(561.5, 584.5)
+scale = Vector2(8.91406, 0.6875)
+shape = SubResource("RectangleShape2D_rhfrn")
+
+[node name="Escuridao" parent="." instance=ExtResource("3_qsbgr")]
+position = Vector2(183, 232)
+
+[node name="Vent" parent="." instance=ExtResource("4_u3ilx")]
+position = Vector2(870, 475)
+
+[node name="Saida" parent="Vent" index="1"]
+position = Vector2(-438, -371)
+
+[editable path="Vent"]
