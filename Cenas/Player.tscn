@@ -11,6 +11,7 @@ bounce = 0.5
 radius = 34.5254
 
 [node name="Bola" type="RigidBody2D" groups=["Player"]]
+collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_5ng1j")
 script = ExtResource("1_6p634")
 speed = 400.0

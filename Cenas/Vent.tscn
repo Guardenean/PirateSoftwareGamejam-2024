@@ -11,6 +11,8 @@ script = ExtResource("1_0eky6")
 
 [node name="Entrada" type="Area2D" parent="."]
 position = Vector2(-117, -3)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Entrada"]
 scale = Vector2(0.515625, 0.515625)
@@ -21,6 +23,8 @@ shape = SubResource("RectangleShape2D_1r7f1")
 
 [node name="Saida" type="Area2D" parent="."]
 position = Vector2(112, -3)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Saida"]
 scale = Vector2(0.515625, 0.515625)

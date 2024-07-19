@@ -7,6 +7,8 @@
 size = Vector2(270, 542)
 
 [node name="Escuridao" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_h0k2p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
