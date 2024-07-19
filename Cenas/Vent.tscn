@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2lpiql47hogl"]
 
-[ext_resource type="Script" path="res://PirateSoftwareGamejam-2024/Scripts/Vent.gd" id="1_0eky6"]
-[ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://PirateSoftwareGamejam-2024/Assets/icon.svg" id="2_n5yc2"]
+[ext_resource type="Script" path="res://Scripts/Vent.gd" id="1_0eky6"]
+[ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://Assets/icon.svg" id="2_n5yc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r7f1"]
 size = Vector2(64, 68)

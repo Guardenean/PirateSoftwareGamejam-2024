@@ -16,9 +16,9 @@ func _process(_delta):
 	if Input.is_physical_key_pressed(KEY_ESCAPE):
 		get_tree().quit()
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	# INPUT PLAYER
-	var inputMove : Vector2
+	var inputMove := Vector2(0, 0)
 	inputMove.x = Input.get_axis("esquerda", "direita")
 	inputMove.y = Input.get_axis("cima", "baixo")
 

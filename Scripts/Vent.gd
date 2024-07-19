@@ -8,7 +8,7 @@ var pos : int = 1 # 1 == Entrada para Saída/ 2 == Saida para Entrada
 
 var target
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("interagir") and ativado:
 		match(pos):
 			1:

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://tqnl75dh036q"]
 
-[ext_resource type="Script" path="res://PirateSoftwareGamejam-2024/Scripts/bola.gd" id="1_6p634"]
-[ext_resource type="Texture2D" uid="uid://svivwqqec21l" path="res://PirateSoftwareGamejam-2024/Assets/Luz.png" id="2_htw46"]
-[ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://PirateSoftwareGamejam-2024/Assets/icon.svg" id="3_5xylp"]
+[ext_resource type="Script" path="res://Scripts/bola.gd" id="1_6p634"]
+[ext_resource type="Texture2D" uid="uid://svivwqqec21l" path="res://Assets/Luz.png" id="2_htw46"]
+[ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://Assets/icon.svg" id="3_5xylp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5ng1j"]
 bounce = 0.5
