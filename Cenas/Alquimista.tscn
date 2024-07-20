@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw383htxkpgv6"]
+[gd_scene load_steps=5 format=3 uid="uid://b0jgfy30n61gt"]
 
 [ext_resource type="Script" path="res://Scripts/alquimista.gd" id="1_17u11"]
 [ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://Assets/icon.svg" id="1_nyn4m"]

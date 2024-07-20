@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://tqnl75dh036q" path="res://Cenas/Player.tscn" id="2_abm1e"]
 [ext_resource type="PackedScene" uid="uid://0ahaj4gw025h" path="res://Cenas/Escuridao.tscn" id="3_qsbgr"]
 [ext_resource type="PackedScene" uid="uid://d2lpiql47hogl" path="res://Cenas/Vent.tscn" id="4_u3ilx"]
-[ext_resource type="PackedScene" uid="uid://bw383htxkpgv6" path="res://Cenas/Alquimista.tscn" id="5_m4lcd"]
+[ext_resource type="PackedScene" uid="uid://b0jgfy30n61gt" path="res://Cenas/Alquimista.tscn" id="5_m4lcd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhfrn"]
 size = Vector2(128.224, 112)
