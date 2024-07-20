@@ -1,18 +1,15 @@
 [gd_scene load_steps=7 format=3 uid="uid://bm3jypn17udcg"]
 
 [ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://Assets/icon.svg" id="1_txtqh"]
-[ext_resource type="PackedScene" uid="uid://tqnl75dh036q" path="res://Cenas/Player.tscn" id="2_abm1e"]
 [ext_resource type="PackedScene" uid="uid://0ahaj4gw025h" path="res://Cenas/Escuridao.tscn" id="3_qsbgr"]
 [ext_resource type="PackedScene" uid="uid://d2lpiql47hogl" path="res://Cenas/Vent.tscn" id="4_u3ilx"]
 [ext_resource type="PackedScene" uid="uid://bw383htxkpgv6" path="res://Cenas/Alquimista.tscn" id="5_m4lcd"]
+[ext_resource type="PackedScene" uid="uid://by6nrbvrnbjyb" path="res://Cenas/PlayerV2.tscn" id="6_rfinv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhfrn"]
 size = Vector2(128.224, 112)
 
 [node name="Node2D" type="Node2D"]
-
-[node name="Bola" parent="." instance=ExtResource("2_abm1e")]
-position = Vector2(532, 410)
 
 [node name="Chao" type="Node2D" parent="."]
 
@@ -51,5 +48,7 @@ position = Vector2(-438, -371)
 
 [node name="Alquimista" parent="." instance=ExtResource("5_m4lcd")]
 position = Vector2(799, 475)
+
+[node name="Player" parent="." instance=ExtResource("6_rfinv")]
 
 [editable path="Vent"]

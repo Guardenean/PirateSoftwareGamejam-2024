@@ -4,9 +4,8 @@ extends RigidBody2D
 @export var speed : float
 @export var jumpVel : float
 
-@onready var sprite = $Sprite2D
+@onready var sprite = $Sprite
 @onready var ground_cast = $Node2D/RayCast2D
-@onready var collision_shape = $CollisionShape2D
 
 var inDark : bool = false
 

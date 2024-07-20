@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://dyq0117fjo0bc" path="res://Assets/Carteado.jpg" id="1_rkdai"]
 [ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://Assets/icon.svg" id="2_vv1ku"]
-[ext_resource type="Script" path="res://Scripts/botao.gd" id="3_b382e"]
+[ext_resource type="Script" path="res://Scripts/Archived/botao.gd" id="3_b382e"]
 [ext_resource type="Shader" path="res://Assets/lanterna.gdshader" id="4_eufci"]
 [ext_resource type="Texture2D" uid="uid://bxrmx3mng5xex" path="res://Assets/Luz 2.png" id="5_wmher"]
-[ext_resource type="Script" path="res://Scripts/Lanterna.gd" id="6_45t4t"]
+[ext_resource type="Script" path="res://Scripts/Archived/Lanterna.gd" id="6_45t4t"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tdljq"]
 shader = ExtResource("4_eufci")
