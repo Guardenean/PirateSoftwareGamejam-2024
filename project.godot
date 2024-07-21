@@ -11,12 +11,14 @@ config_version=5
 [application]
 
 config/name="Pirate Jam 2024"
-run/main_scene="res://Cenas/Teste Bola.tscn"
+run/main_scene="res://Cenas/Inicio.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://Assets/Luz.png"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [input]

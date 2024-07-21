@@ -1,27 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://bw383htxkpgv6"]
+[gd_scene load_steps=5 format=3 uid="uid://b0jgfy30n61gt"]
 
+[ext_resource type="Script" path="res://Scripts/alquimista.gd" id="1_17u11"]
 [ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://Assets/icon.svg" id="1_nyn4m"]
-[ext_resource type="Script" path="res://Scripts/Inimigo/NeoAlquimista.gd" id="1_p05jb"]
-[ext_resource type="PackedScene" uid="uid://tqnl75dh036q" path="res://Cenas/Player.tscn" id="2_5iess"]
-[ext_resource type="Script" path="res://Scripts/StateMachine/StateMachine.gd" id="4_yshpn"]
-[ext_resource type="Script" path="res://Scripts/Inimigo/PersegueState.gd" id="5_6gm1l"]
-[ext_resource type="Script" path="res://Scripts/Inimigo/PatrulhaState.gd" id="5_wako7"]
-[ext_resource type="Script" path="res://Scripts/Inimigo/PossuidoState.gd" id="7_7dy5g"]
-[ext_resource type="Script" path="res://Scripts/Inimigo/MortoState.gd" id="8_ffx3i"]
+[ext_resource type="PackedScene" uid="uid://tqnl75dh036q" path="res://Cenas/Player.tscn" id="2_saby3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17lxm"]
 size = Vector2(70, 69)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2exki"]
-radius = 46.4866
-
 [node name="Alquimista" type="CharacterBody2D"]
 collision_layer = 2
-script = ExtResource("1_p05jb")
-normalSpeed = 80.0
-chaseSpeed = 130.0
-distAtaque = 250.0
-projetil = ExtResource("2_5iess")
+script = ExtResource("1_17u11")
+cena_player = ExtResource("2_saby3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -35.5)
@@ -43,60 +32,11 @@ target_position = Vector2(70, 0)
 position = Vector2(70, 0)
 target_position = Vector2(0, 60)
 
-[node name="RayVisao" type="RayCast2D" parent="."]
-position = Vector2(0, -35)
+[node name="RayVisao" type="RayCast2D" parent="Raycast"]
 target_position = Vector2(700, 0)
 collision_mask = 2
 
-[node name="AreaPossessao" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaPossessao"]
-position = Vector2(0, -35)
-shape = SubResource("CircleShape2D_2exki")
-
 [node name="TempoParado" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 
-[node name="TempoAlerta" type="Timer" parent="."]
-
-[node name="TempoMorte" type="Timer" parent="."]
-wait_time = 5.0
-
-[node name="TempoPersegue" type="Timer" parent="."]
-wait_time = 10.0
-
-[node name="TempoAtaque" type="Timer" parent="."]
-
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("start_state")]
-script = ExtResource("4_yshpn")
-start_state = NodePath("Patrulha")
-
-[node name="Patrulha" type="Node" parent="StateMachine" node_paths=PackedStringArray("Persegue", "Possuido", "Morto")]
-script = ExtResource("5_wako7")
-Persegue = NodePath("../Persegue")
-Possuido = NodePath("../Possuido")
-Morto = NodePath("../Morto")
-
-[node name="Persegue" type="Node" parent="StateMachine" node_paths=PackedStringArray("Patrulha", "Possuido", "Morto")]
-script = ExtResource("5_6gm1l")
-Patrulha = NodePath("../Patrulha")
-Possuido = NodePath("../Possuido")
-Morto = NodePath("../Morto")
-
-[node name="Possuido" type="Node" parent="StateMachine" node_paths=PackedStringArray("Morto")]
-script = ExtResource("7_7dy5g")
-Morto = NodePath("../Morto")
-
-[node name="Morto" type="Node" parent="StateMachine"]
-script = ExtResource("8_ffx3i")
-
-[connection signal="body_entered" from="AreaPossessao" to="." method="_on_area_possessao_body_entered"]
-[connection signal="body_exited" from="AreaPossessao" to="." method="_on_area_possessao_body_exited"]
-[connection signal="timeout" from="TempoParado" to="StateMachine/Patrulha" method="_on_tempo_parado_timeout"]
-[connection signal="timeout" from="TempoAlerta" to="StateMachine/Persegue" method="_on_tempo_alerta_timeout"]
-[connection signal="timeout" from="TempoMorte" to="StateMachine/Morto" method="_on_tempo_morte_timeout"]
-[connection signal="timeout" from="TempoPersegue" to="StateMachine/Persegue" method="_on_tempo_persegue_timeout"]
-[connection signal="timeout" from="TempoAtaque" to="StateMachine/Persegue" method="_on_tempo_ataque_timeout"]
+[connection signal="timeout" from="TempoParado" to="." method="_on_tempo_parado_timeout"]
