@@ -11,15 +11,25 @@ config_version=5
 [application]
 
 config/name="Pirate Jam 2024"
-run/main_scene="res://Cenas/Inicio.tscn"
+run/main_scene="res://Cenas/UI/Inicio.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://Assets/Luz.png"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=720
+window/size/viewport_height=416
+window/size/mode=4
 window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://Assets/": "orange",
+"res://Cenas/": "purple",
+"res://Scripts/": "green",
+"res://Scripts/Archived/": "red"
+}
 
 [input]
 

@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://bm3jypn17udcg"]
+
+[ext_resource type="PackedScene" uid="uid://5wi4o6a7wko8" path="res://Cenas/Objetos/TochaParede.tscn" id="1_wd2cl"]
+[ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://Assets/icon.svg" id="2_167ua"]
+[ext_resource type="PackedScene" uid="uid://0ahaj4gw025h" path="res://Cenas/Objetos/Escuridao.tscn" id="3_0cl6o"]
+[ext_resource type="PackedScene" uid="uid://d2lpiql47hogl" path="res://Cenas/Objetos/Vent.tscn" id="4_gwvin"]
+[ext_resource type="PackedScene" uid="uid://bw383htxkpgv6" path="res://Cenas/Objetos/Alquimista.tscn" id="5_c1xwq"]
+[ext_resource type="PackedScene" uid="uid://by6nrbvrnbjyb" path="res://Cenas/Objetos/PlayerV2.tscn" id="5_y0jnr"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ttbvy"]
+resource_name = "Props"
+scenes/1/scene = ExtResource("1_wd2cl")
+
+[sub_resource type="TileSet" id="TileSet_7rnfo"]
+sources/1 = SubResource("TileSetScenesCollectionSource_ttbvy")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhfrn"]
+size = Vector2(128.224, 112)
+
+[node name="FaseTeste" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.270588, 0.270588, 0.270588, 1)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_7rnfo")
+format = 2
+
+[node name="Chao" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="StaticBody2D" parent="Chao"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Chao/RigidBody2D"]
+position = Vector2(562, 587)
+scale = Vector2(8.91406, 0.6875)
+texture = ExtResource("2_167ua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chao/RigidBody2D"]
+position = Vector2(561.5, 584.5)
+scale = Vector2(8.91406, 0.6875)
+shape = SubResource("RectangleShape2D_rhfrn")
+
+[node name="RigidBody2D2" type="StaticBody2D" parent="Chao"]
+position = Vector2(415, 481)
+
+[node name="Sprite2D" type="Sprite2D" parent="Chao/RigidBody2D2"]
+texture = ExtResource("2_167ua")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chao/RigidBody2D2"]
+shape = SubResource("RectangleShape2D_rhfrn")
+
+[node name="Escuridao" parent="." instance=ExtResource("3_0cl6o")]
+position = Vector2(183, 232)
+
+[node name="Vent" parent="." instance=ExtResource("4_gwvin")]
+position = Vector2(870, 475)
+
+[node name="Entrada" parent="Vent" index="0"]
+position = Vector2(-117, -145)
+
+[node name="Saida" parent="Vent" index="1"]
+position = Vector2(-438, -371)
+
+[node name="Alquimista" parent="." instance=ExtResource("5_c1xwq")]
+position = Vector2(799, 475)
+
+[node name="Player" parent="." instance=ExtResource("5_y0jnr")]
+position = Vector2(434, 368)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(554, 294)
+zoom = Vector2(0.44, 0.44)
+
+[editable path="Vent"]

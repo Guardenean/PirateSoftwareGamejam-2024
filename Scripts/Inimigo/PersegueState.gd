@@ -31,9 +31,9 @@ func FixedUpdate(_delta : float) -> State:
 		return Patrulha
 	
 	if not alerta:
-		var p = parent.global_position.x - parent.target.global_position.x
-		print(p)
-		if abs(p) <= parent.distAtaque:
+		var x = parent.global_position.x - parent.target.global_position.x
+		#var y = parent.global_position.y - parent.target.global_position.y
+		if abs(x) <= parent.distAtaqueX:# and abs(y) <= parent.distAtaqueY:
 			direction = 0
 			if podeAtacar:
 				podeAtacar = false

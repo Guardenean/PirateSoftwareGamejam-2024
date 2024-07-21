@@ -7,7 +7,8 @@ extends CharacterBody2D
 @export var normalSpeed = 150.0
 @export var chaseSpeed = 300.0
 @export var JUMP_VELOCITY = -400.0
-@export var distAtaque : float
+@export var distAtaqueX : float
+@export var distAtaqueY : float
 
 # NODE PLAYER
 var target# : CharacterBody2D
@@ -27,7 +28,7 @@ var target# : CharacterBody2D
 
 # INSTANTIATE
 @export var projetil : PackedScene
-const cena_player = preload("res://Cenas/PlayerV2.tscn")
+const cena_player = preload("res://Cenas/Objetos/PlayerV2.tscn")
 
 # POSSESSÃO
 var pode_possuir : bool = false

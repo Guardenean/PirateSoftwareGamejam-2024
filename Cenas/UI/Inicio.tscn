@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ddd5n0bga4wdj"]
 
-[ext_resource type="Script" path="res://Scripts/Inicio.gd" id="1_0spfo"]
+[ext_resource type="Script" path="res://Scripts/Inicio.gd" id="1_la3bw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcfre"]
 bg_color = Color(1, 1, 1, 1)
@@ -10,26 +10,27 @@ bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_ef27q"]
 Button/colors/font_color = Color(0, 0, 0, 1)
-Button/font_sizes/font_size = 40
+Button/font_sizes/font_size = 70
 Button/styles/normal = SubResource("StyleBoxFlat_jcfre")
 Panel/styles/panel = SubResource("StyleBoxFlat_lgven")
 
 [sub_resource type="Theme" id="Theme_bw7xy"]
 RichTextLabel/font_sizes/normal_font_size = 86
 
-[node name="Inicio" type="Node2D"]
-script = ExtResource("1_0spfo")
+[node name="Inicio" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_la3bw")
 
 [node name="Panel" type="Panel" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 2.0
-offset_top = 1.0
-offset_right = 1929.0
-offset_bottom = 1104.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -43,18 +44,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -121.5
-offset_top = -39.5
-offset_right = 121.5
-offset_bottom = 39.5
+offset_left = -131.0
+offset_top = -45.5
+offset_right = 131.0
+offset_bottom = 181.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
 
 [node name="VBCButtons" type="VBoxContainer" parent="Panel/MButtons"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 35
 alignment = 1
 
 [node name="BPlay" type="Button" parent="Panel/MButtons/VBCButtons"]
@@ -74,9 +80,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -296.5
-offset_top = 76.0
+offset_top = 300.0
 offset_right = 301.5
-offset_bottom = 224.0
+offset_bottom = 448.0
 grow_horizontal = 2
 theme = SubResource("Theme_bw7xy")
 text = "Umbra Escape"
