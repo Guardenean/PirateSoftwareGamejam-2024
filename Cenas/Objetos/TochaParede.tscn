@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://5wi4o6a7wko8"]
 
-[ext_resource type="Texture2D" uid="uid://bxrmx3mng5xex" path="res://Assets/Luz 2.png" id="16_goklj"]
+[ext_resource type="Texture2D" uid="uid://bxrmx3mng5xex" path="res://Scripts/Archived/Coisinhas/Luz 2.png" id="16_goklj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s2exs"]
 animations = [{

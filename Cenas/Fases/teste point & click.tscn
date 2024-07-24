@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://c6odju0c864x0"]
 
-[ext_resource type="Texture2D" uid="uid://dyq0117fjo0bc" path="res://Assets/Carteado.jpg" id="1_l1p4q"]
+[ext_resource type="Texture2D" uid="uid://dyq0117fjo0bc" path="res://Scripts/Archived/Coisinhas/Carteado.jpg" id="1_l1p4q"]
 [ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://Assets/icon.svg" id="2_04aib"]
 [ext_resource type="Script" path="res://Scripts/Archived/botao.gd" id="3_sbbig"]
-[ext_resource type="Shader" path="res://Assets/lanterna.gdshader" id="4_0rg80"]
-[ext_resource type="Texture2D" uid="uid://bxrmx3mng5xex" path="res://Assets/Luz 2.png" id="5_unhjl"]
+[ext_resource type="Shader" path="res://Scripts/Archived/Coisinhas/lanterna.gdshader" id="4_0rg80"]
+[ext_resource type="Texture2D" uid="uid://bxrmx3mng5xex" path="res://Scripts/Archived/Coisinhas/Luz 2.png" id="5_unhjl"]
 [ext_resource type="Script" path="res://Scripts/Archived/Lanterna.gd" id="6_bcfac"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tdljq"]
