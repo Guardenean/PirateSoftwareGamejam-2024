@@ -1,4 +1,10 @@
-[gd_scene format=3 uid="uid://b5t0g1i73vopa"]
+[gd_scene load_steps=6 format=3 uid="uid://b5t0g1i73vopa"]
+
+[ext_resource type="Script" path="res://Scripts/UIDefinitivo.gd" id="1_gfd3i"]
+[ext_resource type="Texture2D" uid="uid://d1ref4eaj0rgg" path="res://Assets/Interface/EscapeUmbra.png" id="1_uwhlo"]
+[ext_resource type="Theme" uid="uid://be2m325hlis3m" path="res://TemaBotoes.tres" id="2_mwlx7"]
+[ext_resource type="Texture2D" uid="uid://ce2h7dbdcmfty" path="res://Assets/Interface/Letreiro/Botões/PLAY/PlayBtt.png" id="3_ohklc"]
+[ext_resource type="Texture2D" uid="uid://df5faiwveiq2b" path="res://Assets/Interface/Letreiro/Botões/EXIT/Exitbtt.png" id="4_3fryr"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -7,15 +13,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_gfd3i")
 
-[node name="BG" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+[node name="EscapeUmbra" type="Sprite2D" parent="."]
+position = Vector2(360, 208)
+texture = ExtResource("1_uwhlo")
 
 [node name="Conteudo" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -31,31 +33,28 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Titulo" type="Label" parent="Conteudo"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 116
-text = "TITULO"
-
-[node name="Espaçamento" type="HSeparator" parent="Conteudo"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-theme_override_constants/separation = 40
-
 [node name="MargemBotoes" type="MarginContainer" parent="Conteudo"]
 layout_mode = 2
 theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 150
 theme_override_constants/margin_right = 90
 
 [node name="Botoes" type="VBoxContainer" parent="Conteudo/MargemBotoes"]
 layout_mode = 2
+theme = ExtResource("2_mwlx7")
 theme_override_constants/separation = 15
 
 [node name="Jogar" type="Button" parent="Conteudo/MargemBotoes/Botoes"]
+light_mask = 0
+texture_filter = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Jogar"
+icon = ExtResource("3_ohklc")
 
 [node name="Sair" type="Button" parent="Conteudo/MargemBotoes/Botoes"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Sair"
+icon = ExtResource("4_3fryr")
+
+[connection signal="pressed" from="Conteudo/MargemBotoes/Botoes/Jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="Conteudo/MargemBotoes/Botoes/Sair" to="." method="_on_sair_pressed"]
