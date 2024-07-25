@@ -10,6 +10,9 @@ extends CharacterBody2D
 @export var distAtaqueX : float
 @export var distAtaqueY : float
 
+# Sprite
+@onready var sprite = $Sprite
+
 # NODE PLAYER
 var target# : CharacterBody2D
 
@@ -20,21 +23,25 @@ var target# : CharacterBody2D
 @onready var ray_visao = $RayVisao
 
 # TIMERS
-@onready var tempo_parado = $TempoParado
-@onready var tempo_morte = $TempoMorte
-@onready var tempo_alerta = $TempoAlerta
-@onready var tempo_persegue = $TempoPersegue
-@onready var tempo_ataque = $TempoAtaque
+@onready var tempo_parado = $Timers/TempoParado
+@onready var tempo_morte = $Timers/TempoMorte
+@onready var tempo_alerta = $Timers/TempoAlerta
+@onready var tempo_persegue = $Timers/TempoPersegue
+@onready var tempo_ataque = $Timers/TempoAtaque
 
 # INSTANTIATE
 @export var projetil : PackedScene
-const cena_player = preload("res://Cenas/Objetos/PlayerV2.tscn")
+const cena_player = preload("res://Cenas/Personagens/PlayerV2.tscn")
 
 # POSSESSÃO
 var pode_possuir : bool = false
+var possuido : bool = false
 
 # GRAVIDADE
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+# CORREÇÃO ESCALA POSSESSÃO
+#@export var reescalarPossessao : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -50,15 +57,19 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	# Muda a posição da visão do inimigo
+	# Muda a posição do sprite e da visão do inimigo
 	if velocity.x < 0:
 		ray_visao.scale.x = -1
+		sprite.flip_h = true
 	if velocity.x > 0:
 		ray_visao.scale.x = 1
+		sprite.flip_h = false
 		
 	move_and_slide()
 
 func Atacar():
+	if not possuido:
+		sprite.play('Ataca')
 	var b = projetil.instantiate()
 	add_child(b)
 	b.reparent(get_tree().root)

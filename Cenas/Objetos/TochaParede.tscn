@@ -1,25 +1,102 @@
-[gd_scene load_steps=3 format=3 uid="uid://5wi4o6a7wko8"]
+[gd_scene load_steps=19 format=3 uid="uid://5wi4o6a7wko8"]
 
-[ext_resource type="Texture2D" uid="uid://bxrmx3mng5xex" path="res://Scripts/Archived/Coisinhas/Luz 2.png" id="16_goklj"]
+[ext_resource type="Texture2D" uid="uid://cwf4aqxux4vly" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaacesa/tochacontinua1.png" id="1_y1u2m"]
+[ext_resource type="Texture2D" uid="uid://dpadh6nbdjhlo" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaacesa/tochacontinua2.png" id="2_b5wfh"]
+[ext_resource type="Texture2D" uid="uid://dpbrbpqmkui8q" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaacesa/tochacontinua3.png" id="3_g7mgx"]
+[ext_resource type="Texture2D" uid="uid://b5v22jij8nogm" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaacesa/tochacontinua4.png" id="4_d2dch"]
+[ext_resource type="Texture2D" uid="uid://rf6jkb1bc386" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaacesa/tochacontinua5.png" id="5_5uceq"]
+[ext_resource type="Texture2D" uid="uid://4e2vxayw761v" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaacesa/tochacontinua6.png" id="6_3t3mj"]
+[ext_resource type="Texture2D" uid="uid://cp5s2e56uko4h" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaacesa/tochacontinua7.png" id="7_eneni"]
+[ext_resource type="Texture2D" uid="uid://ba54jkasrdwa3" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaacesa/tochacontinua8.png" id="8_8xj1x"]
+[ext_resource type="Texture2D" uid="uid://b27n7j4k6s3s" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaapagando/Tocha -apagando1.png" id="9_7xung"]
+[ext_resource type="Texture2D" uid="uid://y6nof8qyn6mc" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaapagando/Tocha -apagando2.png" id="10_i0yqn"]
+[ext_resource type="Texture2D" uid="uid://bjwhg2rg7owx6" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaapagando/Tocha -apagando3.png" id="11_w5auh"]
+[ext_resource type="Texture2D" uid="uid://i7vryg2e1esi" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaapagando/Tocha -apagando4.png" id="12_xtt65"]
+[ext_resource type="Texture2D" uid="uid://d0stsju0via7m" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaapagando/Tocha -apagando5.png" id="13_igxid"]
+[ext_resource type="Texture2D" uid="uid://dxpr8s5d0dsn3" path="res://Assets/Map/Ambiente/Luz.png" id="14_p8ark"]
+[ext_resource type="Script" path="res://Scripts/Tocha.gd" id="15_efatf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s2exs"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y1u2m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_b5wfh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g7mgx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_d2dch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5uceq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3t3mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_eneni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8xj1x")
+}],
 "loop": true,
 "name": &"Acesa",
 "speed": 10.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_7xung")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i0yqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_w5auh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xtt65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_igxid")
+}],
+"loop": false,
 "name": &"Apaga",
 "speed": 10.0
 }]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_vlthx"]
+radius = 139.032
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctccu"]
+size = Vector2(38, 40)
+
+[node name="TochaParede" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_s2exs")
 animation = &"Acesa"
 autoplay = "Acesa"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-texture = ExtResource("16_goklj")
-height = 870.0
+color = Color(0.992157, 0.658824, 0.615686, 1)
+energy = 1.5
+blend_mode = 2
+texture = ExtResource("14_p8ark")
+texture_scale = 0.7
+
+[node name="AreaLuz" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("15_efatf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaLuz"]
+shape = SubResource("CircleShape2D_vlthx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ctccu")
+
+[connection signal="body_entered" from="AreaLuz" to="AreaLuz" method="_on_body_entered"]
+[connection signal="body_exited" from="AreaLuz" to="AreaLuz" method="_on_body_exited"]

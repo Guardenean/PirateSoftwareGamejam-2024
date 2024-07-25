@@ -8,6 +8,9 @@ var direction := 1.0
 var next_dir := 0.0
 var esperando : bool = false
 
+func Enter() -> void:
+	parent.sprite.play('Walk')
+
 func Update(_delta : float) -> State:
 	# Checagem de possessão
 	if Input.is_action_just_pressed("interagir") and parent.pode_possuir:
@@ -30,11 +33,20 @@ func FixedUpdate(_delta : float) -> State:
 			next_dir = -direction
 			parent.rayparent.scale.x = -direction
 			direction = 0
+			parent.sprite.play('Idle')
 			parent.tempo_parado.start()
 			
 		parent.velocity.x = direction * parent.normalSpeed
+		
+	#if parent.velocity.x != 0:
+		#parent.sprite.play('Walk')
+	#else:
+		#parent.sprite.play('Idle')
+		
 	return null
 
 func _on_tempo_parado_timeout():
 	direction = next_dir
 	esperando = false
+	if parent.state_machine.current_state == self:
+		parent.sprite.play('Walk')

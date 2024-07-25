@@ -19,7 +19,6 @@ config/icon="res://Scripts/Archived/Coisinhas/Luz.png"
 
 window/size/viewport_width=720
 window/size/viewport_height=416
-window/size/mode=4
 window/stretch/mode="viewport"
 
 [file_customization]

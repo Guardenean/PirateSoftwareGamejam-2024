@@ -12,6 +12,7 @@ var podeAtacar : bool = true
 
 func Enter() -> void:
 	print('OLHA LÁ ELE!')
+	parent.sprite.play('Idle')
 	direction = 0
 	parent.tempo_alerta.start()
 	alerta = true
@@ -32,8 +33,8 @@ func FixedUpdate(_delta : float) -> State:
 	
 	if not alerta:
 		var x = parent.global_position.x - parent.target.global_position.x
-		#var y = parent.global_position.y - parent.target.global_position.y
-		if abs(x) <= parent.distAtaqueX:# and abs(y) <= parent.distAtaqueY:
+		var y = parent.global_position.y - parent.target.global_position.y
+		if abs(x) <= parent.distAtaqueX and abs(y) <= parent.distAtaqueY:
 			direction = 0
 			if podeAtacar:
 				podeAtacar = false
@@ -51,10 +52,15 @@ func FixedUpdate(_delta : float) -> State:
 	return null
 
 func _on_tempo_alerta_timeout():
+	print('ABUBUBUBUBU')
 	alerta = false
+	parent.tempo_persegue.start()
+	if parent.state_machine.current_state == self:
+		parent.sprite.play('Walk')
 
 func _on_tempo_persegue_timeout():
 	cansou = true
+	print('CANSEI')
 
 func _on_tempo_ataque_timeout():
 	podeAtacar = true

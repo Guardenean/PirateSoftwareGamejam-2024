@@ -184,7 +184,7 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Bola" type="RigidBody2D" groups=["Player"]]
+[node name="Bola" type="RigidBody2D"]
 collision_layer = 2
 physics_material_override = SubResource("PhysicsMaterial_5ng1j")
 script = ExtResource("1_5sd47")

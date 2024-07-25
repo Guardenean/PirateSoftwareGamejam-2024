@@ -3,7 +3,9 @@ extends State
 @export var Morto : State
 
 func Enter() -> void:
+	parent.possuido = true
 	print('TO POSSUIDO AAAAAAAAAA')
+	parent.sprite.play('Possui')
 	parent.target.queue_free()
 
 func Update(_delta : float) -> State:
@@ -35,7 +37,10 @@ func UnhandledEvent(_event : InputEvent) -> State:
 	return null
 
 func liberar():
+	parent.possuido = false
 	var p = parent.cena_player.instantiate()
 	parent.add_child(p)
+	#if parent.reescalarPossessao:
+		#p.scale = Vector2.ONE
 	p.reparent(get_tree().root)
 	p.global_position = parent.global_position
