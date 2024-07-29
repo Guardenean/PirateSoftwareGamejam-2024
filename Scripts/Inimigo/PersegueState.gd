@@ -37,15 +37,19 @@ func FixedUpdate(_delta : float) -> State:
 		if abs(x) <= parent.distAtaqueX and abs(y) <= parent.distAtaqueY:
 			direction = 0
 			if podeAtacar:
+				direction = 0
 				podeAtacar = false
 				parent.Atacar()
 				parent.tempo_ataque.start()
 		else:
 			var pos = parent.target.global_position.x - parent.global_position.x
-			if pos < 0:
+			#print(pos)
+			if pos < -5:
 				direction = -1
-			else:
+			elif pos > 5:
 				direction = 1
+			#else:
+				#direction = 0
 		
 	parent.velocity.x = direction * parent.chaseSpeed
 	parent.move_and_slide()

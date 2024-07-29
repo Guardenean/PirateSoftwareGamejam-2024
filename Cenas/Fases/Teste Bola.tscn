@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cv3ua4otixn0e" path="res://Assets/icon.svg" id="2_167ua"]
 [ext_resource type="PackedScene" uid="uid://0ahaj4gw025h" path="res://Cenas/Objetos/Escuridao.tscn" id="3_0cl6o"]
 [ext_resource type="PackedScene" uid="uid://d2lpiql47hogl" path="res://Cenas/Objetos/Vent.tscn" id="4_gwvin"]
-[ext_resource type="PackedScene" uid="uid://bw383htxkpgv6" path="res://Cenas/Personagens/Alquimista.tscn" id="5_c1xwq"]
+[ext_resource type="PackedScene" uid="uid://bw383htxkpgv6" path="res://Cenas/Personagens/AlquimistaVerde.tscn" id="5_c1xwq"]
 [ext_resource type="PackedScene" uid="uid://by6nrbvrnbjyb" path="res://Cenas/Personagens/PlayerV2.tscn" id="5_y0jnr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s2exs"]

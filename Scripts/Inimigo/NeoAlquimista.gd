@@ -61,11 +61,11 @@ func _physics_process(delta):
 	# Muda a posição do sprite e da visão do inimigo
 	if velocity.x < 0:
 		ray_visao.scale.x = -1
-		pos_tiro.position.x = -18
+		pos_tiro.position.x = -32
 		sprite.flip_h = true
 	if velocity.x > 0:
 		ray_visao.scale.x = 1
-		pos_tiro.position.x = 18
+		pos_tiro.position.x = 32
 		sprite.flip_h = false
 		
 	move_and_slide()

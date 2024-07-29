@@ -1,8 +1,10 @@
 extends State
 
 @export var Morto : State
+var animPossui : bool = true
 
 func Enter() -> void:
+	parent.velocity.x = 0
 	parent.possuido = true
 	parent.sprite.play('Possui')
 	parent.target.queue_free()
@@ -16,6 +18,12 @@ func Update(_delta : float) -> State:
 	return null
 	
 func FixedUpdate(_delta : float) -> State:
+	if !parent.sprite.is_playing():
+		animPossui = false
+	
+	if animPossui:
+		return null
+		
 	if parent.morto:
 		return Morto
 		
@@ -30,8 +38,10 @@ func FixedUpdate(_delta : float) -> State:
 	var direction = Input.get_axis("esquerda", "direita")
 	if direction:
 		parent.velocity.x = direction * parent.chaseSpeed
+		parent.sprite.play('PWalk')
 	else:
 		parent.velocity.x = move_toward(parent.velocity.x, 0, parent.chaseSpeed)
+		parent.sprite.play('PIdle')
 	return null
 
 func UnhandledEvent(_event : InputEvent) -> State:

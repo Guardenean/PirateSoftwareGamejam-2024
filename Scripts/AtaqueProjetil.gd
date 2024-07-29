@@ -6,7 +6,7 @@ var direction : int
 func _ready():
 	$Timer.start()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	global_position.x += speed * direction
 
 func _on_body_entered(body):

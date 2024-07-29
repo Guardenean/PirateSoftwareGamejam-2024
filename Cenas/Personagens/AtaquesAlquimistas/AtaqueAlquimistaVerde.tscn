@@ -91,7 +91,7 @@ animations = [{
 "speed": 11.0
 }]
 
-[node name="AtaqueAlquimista" type="Area2D"]
+[node name="AtaqueAlquimistaVerde" type="Area2D"]
 collision_mask = 3
 script = ExtResource("1_5cjcp")
 speed = 2.0

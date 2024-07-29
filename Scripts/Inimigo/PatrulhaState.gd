@@ -23,9 +23,8 @@ func FixedUpdate(_delta : float) -> State:
 	if parent.morto:
 		return Morto
 	
-	var c
 	if parent.ray_visao.is_colliding():
-		c = parent.ray_visao.get_collider()
+		var c = parent.ray_visao.get_collider()
 		if c.is_in_group('Player'):
 			if c != null:
 				parent.target = c
@@ -42,11 +41,6 @@ func FixedUpdate(_delta : float) -> State:
 			parent.tempo_parado.start()
 			
 		parent.velocity.x = direction * parent.normalSpeed
-		
-	#if parent.velocity.x != 0:
-		#parent.sprite.play('Walk')
-	#else:
-		#parent.sprite.play('Idle')
 		
 	return null
 

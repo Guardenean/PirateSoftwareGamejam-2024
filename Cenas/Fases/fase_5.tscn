@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b5t0g1i73vopa" path="res://Cenas/UI/UIDefinitivo.tscn" id="2_xgs4l"]
 [ext_resource type="Texture2D" uid="uid://ew1l0p8tqp8d" path="res://Assets/Map/Tilemaps-export.png" id="3_6njqo"]
 [ext_resource type="PackedScene" uid="uid://by6nrbvrnbjyb" path="res://Cenas/Personagens/PlayerV2.tscn" id="3_ral4s"]
-[ext_resource type="PackedScene" uid="uid://bw383htxkpgv6" path="res://Cenas/Personagens/Alquimista.tscn" id="4_jml6o"]
+[ext_resource type="PackedScene" uid="uid://bw383htxkpgv6" path="res://Cenas/Personagens/AlquimistaVerde.tscn" id="6_otjcn"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a1btu"]
 resource_name = "Props"
@@ -442,8 +442,8 @@ color = Color(0.435294, 0.435294, 0.435294, 1)
 [node name="Player" parent="." instance=ExtResource("3_ral4s")]
 position = Vector2(120, 213)
 
-[node name="Alquimista" parent="." instance=ExtResource("4_jml6o")]
+[node name="Alquimista" parent="." instance=ExtResource("6_otjcn")]
 position = Vector2(210, 320)
 
-[node name="Alquimista2" parent="." instance=ExtResource("4_jml6o")]
+[node name="Alquimista2" parent="." instance=ExtResource("6_otjcn")]
 position = Vector2(486, 322)

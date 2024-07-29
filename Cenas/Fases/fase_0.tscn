@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://upswt83a4b3c" path="res://Assets/Map/Tilemap0.png" id="1_rdrn4"]
 [ext_resource type="PackedScene" uid="uid://5wi4o6a7wko8" path="res://Cenas/Objetos/TochaParede.tscn" id="2_6f6pq"]
 [ext_resource type="PackedScene" uid="uid://by6nrbvrnbjyb" path="res://Cenas/Personagens/PlayerV2.tscn" id="2_njicw"]
-[ext_resource type="PackedScene" uid="uid://bw383htxkpgv6" path="res://Cenas/Personagens/Alquimista.tscn" id="3_m84au"]
+[ext_resource type="PackedScene" uid="uid://bw383htxkpgv6" path="res://Cenas/Personagens/AlquimistaVerde.tscn" id="3_m84au"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_40n8d"]
 texture = ExtResource("1_rdrn4")
