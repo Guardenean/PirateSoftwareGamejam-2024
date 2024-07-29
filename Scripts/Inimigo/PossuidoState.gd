@@ -4,12 +4,10 @@ extends State
 
 func Enter() -> void:
 	parent.possuido = true
-	print('TO POSSUIDO AAAAAAAAAA')
 	parent.sprite.play('Possui')
 	parent.target.queue_free()
 
 func Update(_delta : float) -> State:
-	print()
 	# Checagem de libertação
 	if Input.is_action_just_pressed("baixo"):
 		liberar()
@@ -18,6 +16,9 @@ func Update(_delta : float) -> State:
 	return null
 	
 func FixedUpdate(_delta : float) -> State:
+	if parent.morto:
+		return Morto
+		
 	# Pulo
 	if Input.is_action_just_pressed("pulo") and parent.is_on_floor():
 		parent.velocity.y = parent.JUMP_VELOCITY
@@ -39,8 +40,7 @@ func UnhandledEvent(_event : InputEvent) -> State:
 func liberar():
 	parent.possuido = false
 	var p = parent.cena_player.instantiate()
-	parent.add_child(p)
 	#if parent.reescalarPossessao:
 		#p.scale = Vector2.ONE
-	p.reparent(get_tree().root)
 	p.global_position = parent.global_position
+	parent.get_parent().add_child(p)

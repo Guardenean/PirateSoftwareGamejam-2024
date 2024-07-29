@@ -27,8 +27,8 @@ func Update(_delta : float) -> State:
 		return Possuido
 	return null
 
-func FixedUpdate(_delta : float) -> State:
-	if cansou:
+func FixedUpdate(_delta : float) -> State:	
+	if cansou or parent.target == null:
 		return Patrulha
 	
 	if not alerta:

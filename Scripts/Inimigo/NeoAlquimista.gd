@@ -14,7 +14,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite
 
 # NODE PLAYER
-var target# : CharacterBody2D
+var target
 
 # RAYCASTS
 @onready var rayparent = $Raycast
@@ -32,6 +32,7 @@ var target# : CharacterBody2D
 # INSTANTIATE
 @export var projetil : PackedScene
 const cena_player = preload("res://Cenas/Personagens/PlayerV2.tscn")
+@onready var pos_tiro = $PosTiro
 
 # POSSESSÃO
 var pode_possuir : bool = false
@@ -40,8 +41,8 @@ var possuido : bool = false
 # GRAVIDADE
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-# CORREÇÃO ESCALA POSSESSÃO
-#@export var reescalarPossessao : bool
+# MORTE
+var morto : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -60,9 +61,11 @@ func _physics_process(delta):
 	# Muda a posição do sprite e da visão do inimigo
 	if velocity.x < 0:
 		ray_visao.scale.x = -1
+		pos_tiro.position.x = -18
 		sprite.flip_h = true
 	if velocity.x > 0:
 		ray_visao.scale.x = 1
+		pos_tiro.position.x = 18
 		sprite.flip_h = false
 		
 	move_and_slide()
@@ -72,8 +75,9 @@ func Atacar():
 		sprite.play('Ataca')
 	var b = projetil.instantiate()
 	add_child(b)
+	b.direction = ray_visao.scale.x
 	b.reparent(get_tree().root)
-	b.global_position = global_position
+	b.global_position = pos_tiro.global_position
 
 func _on_area_possessao_body_entered(body):
 	if body.is_in_group('Player'):

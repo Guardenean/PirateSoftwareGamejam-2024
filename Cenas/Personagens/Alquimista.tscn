@@ -1,7 +1,7 @@
 [gd_scene load_steps=69 format=3 uid="uid://bw383htxkpgv6"]
 
 [ext_resource type="Script" path="res://Scripts/Inimigo/NeoAlquimista.gd" id="1_p05jb"]
-[ext_resource type="PackedScene" uid="uid://tqnl75dh036q" path="res://Cenas/Objetos/Player.tscn" id="2_5iess"]
+[ext_resource type="PackedScene" uid="uid://c88vmfm3rrdon" path="res://Cenas/Personagens/AtaquesAlquimistas/AtaqueAlquimistaVerde.tscn" id="2_ff427"]
 [ext_resource type="Texture2D" uid="uid://b3uxi3wc8vlww" path="res://Assets/Alquimistas/Alquimista_Verde/alquiverdeatk.png" id="3_dybix"]
 [ext_resource type="Texture2D" uid="uid://c64om4g77kmax" path="res://Assets/Alquimistas/Alquimista_Verde/alquiverdemorto.png" id="4_fp3ru"]
 [ext_resource type="Texture2D" uid="uid://cun34cml1h1jk" path="res://Assets/Alquimistas/Alquimista_Verde/alquimista_verde andando.png" id="4_l0615"]
@@ -435,14 +435,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_2exki"]
 radius = 33.0151
 
-[node name="Alquimista" type="CharacterBody2D"]
+[node name="AlquimistaVerde" type="CharacterBody2D" groups=["Inimigo"]]
 collision_layer = 2
 script = ExtResource("1_p05jb")
-normalSpeed = 80.0
-chaseSpeed = 90.0
+normalSpeed = 50.0
+chaseSpeed = 70.0
 distAtaqueX = 70.0
 distAtaqueY = 30.0
-projetil = ExtResource("2_5iess")
+projetil = ExtResource("2_ff427")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -20.5)
@@ -469,6 +469,9 @@ target_position = Vector2(0, 30)
 position = Vector2(0, -17)
 target_position = Vector2(400, 0)
 collision_mask = 2
+
+[node name="PosTiro" type="Node2D" parent="."]
+position = Vector2(18, -21)
 
 [node name="AreaPossessao" type="Area2D" parent="."]
 collision_layer = 2

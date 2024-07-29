@@ -15,9 +15,13 @@ run/main_scene="res://Cenas/UI/UIDefinitivo.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://Scripts/Archived/Coisinhas/Luz.png"
 
+[autoload]
+
+GameController="*res://Scripts/GameController.gd"
+
 [display]
 
-window/size/viewport_width=720
+window/size/viewport_width=736
 window/size/viewport_height=416
 window/stretch/mode="viewport"
 

@@ -59,6 +59,6 @@ texture = ExtResource("5_unhjl")
 script = ExtResource("6_bcfac")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.605, 0.605)
+zoom = Vector2(0.384, 0.384)
 
 [connection signal="button_down" from="Background/TextureButton" to="Background/TextureButton" method="_on_button_down"]

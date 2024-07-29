@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5t0g1i73vopa"]
+[gd_scene load_steps=5 format=3 uid="uid://b5t0g1i73vopa"]
 
 [ext_resource type="Script" path="res://Scripts/UIDefinitivo.gd" id="1_gfd3i"]
 [ext_resource type="Texture2D" uid="uid://d1ref4eaj0rgg" path="res://Assets/Interface/EscapeUmbra.png" id="1_uwhlo"]
 [ext_resource type="Texture2D" uid="uid://ce2h7dbdcmfty" path="res://Assets/Interface/Letreiro/Botões/PLAY/PlayBtt.png" id="3_ohklc"]
 [ext_resource type="Texture2D" uid="uid://df5faiwveiq2b" path="res://Assets/Interface/Letreiro/Botões/EXIT/Exitbtt.png" id="4_3fryr"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_e353q"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -54,7 +52,6 @@ light_mask = 0
 texture_filter = 1
 layout_mode = 2
 texture_normal = ExtResource("3_ohklc")
-texture_hover = SubResource("PlaceholderTexture2D_e353q")
 
 [node name="Sair" type="TextureButton" parent="Conteudo/MargemBotoes/Botoes"]
 layout_mode = 2

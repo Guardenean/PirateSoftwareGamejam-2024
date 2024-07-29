@@ -20,12 +20,17 @@ func Update(_delta : float) -> State:
 	return null
 
 func FixedUpdate(_delta : float) -> State:
+	if parent.morto:
+		return Morto
+	
 	var c
 	if parent.ray_visao.is_colliding():
 		c = parent.ray_visao.get_collider()
 		if c.is_in_group('Player'):
-			parent.target = c
-			return Persegue
+			if c != null:
+				parent.target = c
+				return Persegue
+			return null
 	
 	if parent.is_on_floor() and esperando == false:
 		if parent.ray_parede.is_colliding() or !parent.ray_chao.is_colliding():

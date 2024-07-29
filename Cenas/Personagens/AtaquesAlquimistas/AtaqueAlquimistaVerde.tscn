@@ -1,6 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://c88vmfm3rrdon"]
+[gd_scene load_steps=16 format=3 uid="uid://c88vmfm3rrdon"]
 
+[ext_resource type="Script" path="res://Scripts/AtaqueProjetil.gd" id="1_5cjcp"]
 [ext_resource type="Texture2D" uid="uid://5dsxiyuqrxw1" path="res://Assets/Alquimistas/Alquimista_Verde/atkverde.png" id="1_ho0wa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_20wos"]
+radius = 7.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t5pah"]
 atlas = ExtResource("1_ho0wa")
@@ -84,17 +88,24 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 14.0
+"speed": 11.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_20wos"]
-radius = 7.0
-
-[node name="AtaqueAlquimista" type="Node2D"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_rfqn4")
-frame_progress = 0.67101
+[node name="AtaqueAlquimista" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_5cjcp")
+speed = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_20wos")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_rfqn4")
+autoplay = "default"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

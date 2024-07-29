@@ -11,6 +11,7 @@ var pulando : bool = false
 
 @onready var sprite = $Sprite
 
+var darkCount := 0
 var inDark : bool = true
 
 func _process(_delta):
@@ -18,13 +19,25 @@ func _process(_delta):
 		get_tree().quit()
 
 func _physics_process(delta):
-	sprite.play("Idle")
-	
+	#sprite.play("Idle")
 	var direction := Vector2(0, 0)
 	direction.x = Input.get_axis("esquerda", "direita")
 	direction.y = Input.get_axis("cima", "baixo")
 	
-	if !inDark:
+	if darkCount <= 0:
+		sprite.play("Dark")
+		if direction:
+			velocity = direction.normalized() * speed
+			if direction.x < 0:
+				sprite.flip_h = true
+			elif direction.x > 0:
+				sprite.flip_h = false
+					
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
+			velocity.y = move_toward(velocity.y, 0, speed)
+	
+	else:
 		# Add the gravity.
 		if not is_on_floor():
 			if velocity.y < 0:
@@ -56,18 +69,7 @@ func _physics_process(delta):
 					
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
-	else:
-		sprite.play("Dark")
-		if direction:
-			velocity = direction.normalized() * speed
-			if direction.x < 0:
-				sprite.flip_h = true
-			elif direction.x > 0:
-				sprite.flip_h = false
-					
-		else:
-			velocity.x = move_toward(velocity.x, 0, speed)
-			velocity.y = move_toward(velocity.y, 0, speed)
+
 
 	move_and_slide()
 	
@@ -79,3 +81,9 @@ func darkness(val : int):
 		1:
 			inDark = true
 			gravity = 0
+
+func add_dark(val):
+	if darkCount + val < 0:
+		darkCount = 0
+	else:
+		darkCount += val

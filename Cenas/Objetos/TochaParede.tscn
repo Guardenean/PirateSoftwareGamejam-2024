@@ -78,6 +78,7 @@ size = Vector2(38, 40)
 sprite_frames = SubResource("SpriteFrames_s2exs")
 animation = &"Acesa"
 autoplay = "Acesa"
+script = ExtResource("15_efatf")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.992157, 0.658824, 0.615686, 1)
@@ -88,15 +89,17 @@ texture_scale = 0.7
 
 [node name="AreaLuz" type="Area2D" parent="."]
 collision_mask = 2
-script = ExtResource("15_efatf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaLuz"]
 shape = SubResource("CircleShape2D_vlthx")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AreaInteract" type="Area2D" parent="."]
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteract"]
 shape = SubResource("RectangleShape2D_ctccu")
 
-[connection signal="body_entered" from="AreaLuz" to="AreaLuz" method="_on_body_entered"]
-[connection signal="body_exited" from="AreaLuz" to="AreaLuz" method="_on_body_exited"]
+[connection signal="body_entered" from="AreaLuz" to="." method="_on_area_luz_body_entered"]
+[connection signal="body_exited" from="AreaLuz" to="." method="_on_area_luz_body_exited"]
+[connection signal="body_entered" from="AreaInteract" to="." method="_on_area_interact_body_entered"]
+[connection signal="body_exited" from="AreaInteract" to="." method="_on_area_interact_body_exited"]
