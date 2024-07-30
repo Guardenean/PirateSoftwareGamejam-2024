@@ -16,18 +16,19 @@ func Enter() -> void:
 	direction = 0
 	parent.tempo_alerta.start()
 	alerta = true
-	
-func Exit() -> void:
-	pass
 
 func Update(_delta : float) -> State:
 	# Checagem de possessão
 	if Input.is_action_just_pressed("interagir") and parent.pode_possuir:
-		parent.pode_possuir = false
-		return Possuido
+		if not parent.alquiLuz:
+			parent.pode_possuir = false
+			return Possuido
 	return null
 
-func FixedUpdate(_delta : float) -> State:	
+func FixedUpdate(_delta : float) -> State:
+	if parent.morto:
+		return Morto
+		
 	if cansou or parent.target == null:
 		return Patrulha
 	
@@ -54,6 +55,9 @@ func FixedUpdate(_delta : float) -> State:
 	parent.velocity.x = direction * parent.chaseSpeed
 	parent.move_and_slide()
 	return null
+
+func Exit() -> void:
+	cansou = false
 
 func _on_tempo_alerta_timeout():
 	print('ABUBUBUBUBU')

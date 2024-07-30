@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://co8ogtifhwpff"]
+[gd_scene load_steps=87 format=3 uid="uid://co8ogtifhwpff"]
 
 [ext_resource type="Script" path="res://Scripts/Inimigo/NeoAlquimista.gd" id="1_j04ni"]
 [ext_resource type="PackedScene" uid="uid://b1trnjbmp2cyt" path="res://Cenas/Personagens/AtaquesAlquimistas/AtaqueAlquimistaVermelho.tscn" id="2_sc5nw"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" path="res://Scripts/Inimigo/PersegueState.gd" id="9_8hciy"]
 [ext_resource type="Script" path="res://Scripts/Inimigo/PossuidoState.gd" id="10_nclcg"]
 [ext_resource type="Script" path="res://Scripts/Inimigo/MortoState.gd" id="11_fp3cb"]
+[ext_resource type="AudioStream" uid="uid://ycsb8e85iv1i" path="res://Assets/Sons/AlquimistaMorrendo.wav" id="12_72888"]
+[ext_resource type="AudioStream" uid="uid://2mho4ka6jm6w" path="res://Assets/Sons/Ataque3.wav" id="13_qocoi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17lxm"]
 size = Vector2(16, 39)
@@ -635,6 +637,13 @@ Morto = NodePath("../Morto")
 
 [node name="Morto" type="Node" parent="StateMachine"]
 script = ExtResource("11_fp3cb")
+
+[node name="MorteSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_72888")
+
+[node name="AtaqueSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_qocoi")
+volume_db = -10.0
 
 [connection signal="body_entered" from="AreaPossessao" to="." method="_on_area_possessao_body_entered"]
 [connection signal="body_exited" from="AreaPossessao" to="." method="_on_area_possessao_body_exited"]

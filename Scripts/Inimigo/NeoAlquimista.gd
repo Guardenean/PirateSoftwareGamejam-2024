@@ -4,9 +4,9 @@ extends CharacterBody2D
 @onready var state_machine : StateMachine = $StateMachine
 
 # VARIÁVEIS DE MOVIMENTO
-@export var normalSpeed = 150.0
-@export var chaseSpeed = 300.0
-@export var JUMP_VELOCITY = -400.0
+@export var normalSpeed = 50.0
+@export var chaseSpeed = 60
+@export var JUMP_VELOCITY = -300.0
 @export var distAtaqueX : float
 @export var distAtaqueY : float
 
@@ -37,12 +37,15 @@ const cena_player = preload("res://Cenas/Personagens/PlayerV2.tscn")
 # POSSESSÃO
 var pode_possuir : bool = false
 var possuido : bool = false
+@export var alquiLuz : bool
 
 # GRAVIDADE
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 # MORTE
 var morto : bool = false
+@onready var morte_sfx = $MorteSFX
+@onready var ataque_sfx = $AtaqueSFX
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -71,6 +74,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 func Atacar():
+	ataque_sfx.play()
 	if not possuido:
 		sprite.play('Ataca')
 	var b = projetil.instantiate()

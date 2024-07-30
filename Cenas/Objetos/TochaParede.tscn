@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://5wi4o6a7wko8"]
+[gd_scene load_steps=20 format=3 uid="uid://5wi4o6a7wko8"]
 
 [ext_resource type="Texture2D" uid="uid://cwf4aqxux4vly" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaacesa/tochacontinua1.png" id="1_y1u2m"]
 [ext_resource type="Texture2D" uid="uid://dpadh6nbdjhlo" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaacesa/tochacontinua2.png" id="2_b5wfh"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d0stsju0via7m" path="res://Assets/Map/Ambiente/Objetos/Tochaparede/Tochaapagando/Tocha -apagando5.png" id="13_igxid"]
 [ext_resource type="Texture2D" uid="uid://dxpr8s5d0dsn3" path="res://Assets/Map/Ambiente/Luz.png" id="14_p8ark"]
 [ext_resource type="Script" path="res://Scripts/Tocha.gd" id="15_efatf"]
+[ext_resource type="AudioStream" uid="uid://c4hg454op81b4" path="res://Assets/Sons/Tochagua.wav" id="16_nyhr1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s2exs"]
 animations = [{
@@ -69,7 +70,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vlthx"]
-radius = 139.032
+radius = 64.0312
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ctccu"]
 size = Vector2(38, 40)
@@ -81,6 +82,7 @@ autoplay = "Acesa"
 script = ExtResource("15_efatf")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(0.52, 0.548571)
 color = Color(0.992157, 0.658824, 0.615686, 1)
 energy = 1.5
 blend_mode = 2
@@ -98,6 +100,9 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteract"]
 shape = SubResource("RectangleShape2D_ctccu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_nyhr1")
 
 [connection signal="body_entered" from="AreaLuz" to="." method="_on_area_luz_body_entered"]
 [connection signal="body_exited" from="AreaLuz" to="." method="_on_area_luz_body_exited"]

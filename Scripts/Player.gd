@@ -10,34 +10,48 @@ var gravity
 var pulando : bool = false
 
 @onready var sprite = $Sprite
+@onready var dark = $Dark
 
 var darkCount := 0
 var inDark : bool = true
 
-func _process(_delta):
-	if Input.is_physical_key_pressed(KEY_ESCAPE):
-		get_tree().quit()
+var morto : bool = false
+@onready var morte_sfx = $MorteSFX
+@onready var timer_morte = $TimerMorte
+
+func  _ready():
+	sprite.visible = true
+	dark.visible = false
 
 func _physics_process(delta):
+	if morto:
+		return
 	#sprite.play("Idle")
 	var direction := Vector2(0, 0)
 	direction.x = Input.get_axis("esquerda", "direita")
 	direction.y = Input.get_axis("cima", "baixo")
 	
 	if darkCount <= 0:
-		sprite.play("Dark")
+		#sprite.play("Dark")
+		sprite.visible = false
+		dark.visible = true
+		
 		if direction:
 			velocity = direction.normalized() * speed
 			if direction.x < 0:
 				sprite.flip_h = true
+				dark.flip_h = true
 			elif direction.x > 0:
 				sprite.flip_h = false
+				dark.flip_h = false
 					
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
 			velocity.y = move_toward(velocity.y, 0, speed)
 	
 	else:
+		sprite.visible = true
+		dark.visible = false
 		# Add the gravity.
 		if not is_on_floor():
 			if velocity.y < 0:
@@ -72,18 +86,20 @@ func _physics_process(delta):
 
 
 	move_and_slide()
-	
-func darkness(val : int):
-	match(val):
-		0:
-			inDark = false
-			gravity = fallGravity
-		1:
-			inDark = true
-			gravity = 0
 
 func add_dark(val):
 	if darkCount + val < 0:
 		darkCount = 0
 	else:
 		darkCount += val
+
+func morte():
+	if !morto:
+		morto = true
+		print('AI AI AI EU MORRI NÃAO')
+		morte_sfx.play()
+		timer_morte.start()
+		sprite.play("Morte")
+
+func _on_timer_morte_timeout():
+	get_tree().reload_current_scene()

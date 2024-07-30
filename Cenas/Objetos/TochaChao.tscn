@@ -1,0 +1,101 @@
+[gd_scene load_steps=18 format=3 uid="uid://bute6bo2od4o0"]
+
+[ext_resource type="Texture2D" uid="uid://ddxofrsxm3jhn" path="res://Assets/Map/Ambiente/Objetos/Tocha de chão/Spriteacesa/Tochaacesadc1.png" id="1_bf7go"]
+[ext_resource type="Texture2D" uid="uid://y5vgs5ap16h3" path="res://Assets/Map/Ambiente/Objetos/Tocha de chão/Spriteacesa/Tochaacesadc2.png" id="2_3n7cg"]
+[ext_resource type="Texture2D" uid="uid://ob1lg8iq6rxt" path="res://Assets/Map/Ambiente/Objetos/Tocha de chão/Spriteacesa/Tochaacesadc3.png" id="3_1cnwe"]
+[ext_resource type="Texture2D" uid="uid://cvydargnemyfd" path="res://Assets/Map/Ambiente/Objetos/Tocha de chão/Spriteacesa/Tochaacesadc4.png" id="4_tmsd6"]
+[ext_resource type="Texture2D" uid="uid://cte6bv6em3b3v" path="res://Assets/Map/Ambiente/Objetos/Tocha de chão/Spriteacesa/Tochaacesadc5.png" id="5_ibo3u"]
+[ext_resource type="Texture2D" uid="uid://bdkwudqh1fj40" path="res://Assets/Map/Ambiente/Objetos/Tocha de chão/Spriteacesa/Tochaacesadc6.png" id="6_3h4di"]
+[ext_resource type="Texture2D" uid="uid://cve50f7rj8stn" path="res://Assets/Map/Ambiente/Objetos/Tocha de chão/Spriteapagando/Tochaapagandodc1.png" id="7_nue1s"]
+[ext_resource type="Texture2D" uid="uid://byrv3bsavac75" path="res://Assets/Map/Ambiente/Objetos/Tocha de chão/Spriteapagando/Tochaapagandodc2.png" id="8_rvnqo"]
+[ext_resource type="Texture2D" uid="uid://b186s57el37su" path="res://Assets/Map/Ambiente/Objetos/Tocha de chão/Spriteapagando/Tochaapagandodc3.png" id="9_jedgy"]
+[ext_resource type="Texture2D" uid="uid://gq0sgoebx5t7" path="res://Assets/Map/Ambiente/Objetos/Tocha de chão/Spriteapagando/Tochaapagandodc4.png" id="10_e2mga"]
+[ext_resource type="Texture2D" uid="uid://c2esi0ov7aa48" path="res://Assets/Map/Ambiente/Objetos/Tocha de chão/Spriteapagando/Tochaapagandodc5.png" id="11_dlk2h"]
+[ext_resource type="Script" path="res://Scripts/Tocha.gd" id="14_eih7y"]
+[ext_resource type="Texture2D" uid="uid://dxpr8s5d0dsn3" path="res://Assets/Map/Ambiente/Luz.png" id="15_ab2i4"]
+[ext_resource type="AudioStream" uid="uid://c4hg454op81b4" path="res://Assets/Sons/Tochagua.wav" id="16_gxuf6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s2exs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bf7go")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3n7cg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1cnwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tmsd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ibo3u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3h4di")
+}],
+"loop": true,
+"name": &"Acesa",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_nue1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rvnqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jedgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_e2mga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dlk2h")
+}],
+"loop": false,
+"name": &"Apaga",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vlthx"]
+radius = 139.032
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctccu"]
+size = Vector2(38, 40)
+
+[node name="TochaParede" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_s2exs")
+animation = &"Apaga"
+autoplay = "Acesa"
+script = ExtResource("14_eih7y")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.992157, 0.658824, 0.615686, 1)
+energy = 1.5
+blend_mode = 2
+texture = ExtResource("15_ab2i4")
+texture_scale = 0.7
+
+[node name="AreaLuz" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaLuz"]
+shape = SubResource("CircleShape2D_vlthx")
+
+[node name="AreaInteract" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaInteract"]
+shape = SubResource("RectangleShape2D_ctccu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_gxuf6")
+
+[connection signal="body_entered" from="AreaLuz" to="." method="_on_area_luz_body_entered"]
+[connection signal="body_exited" from="AreaLuz" to="." method="_on_area_luz_body_exited"]
+[connection signal="body_entered" from="AreaInteract" to="." method="_on_area_interact_body_entered"]
+[connection signal="body_exited" from="AreaInteract" to="." method="_on_area_interact_body_exited"]

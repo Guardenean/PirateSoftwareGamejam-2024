@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhtulv2legc67"]
+[gd_scene load_steps=14 format=3 uid="uid://bhtulv2legc67"]
 
 [ext_resource type="Script" path="res://Scripts/FaseController.gd" id="1_1xwcl"]
 [ext_resource type="PackedScene" uid="uid://5wi4o6a7wko8" path="res://Cenas/Objetos/TochaParede.tscn" id="1_3o4oy"]
@@ -420,6 +420,82 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetScenesCollectionSource_a1btu")
 sources/3 = SubResource("TileSetAtlasSource_aqkm1")
 
+[sub_resource type="Animation" id="Animation_slj78"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_p3n2k"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_atf05"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_thxuv"]
+_data = {
+"RESET": SubResource("Animation_slj78"),
+"fade_in": SubResource("Animation_p3n2k"),
+"fade_out": SubResource("Animation_atf05")
+}
+
 [node name="Fase_4" type="Node2D"]
 script = ExtResource("1_1xwcl")
 numTochas = 3
@@ -457,6 +533,22 @@ position = Vector2(318, 225)
 
 [node name="Saida" parent="Vent2" index="1"]
 position = Vector2(319, 98)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_thxuv")
+}
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+z_index = 5
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [editable path="Vent"]
 [editable path="Vent2"]

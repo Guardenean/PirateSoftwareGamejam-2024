@@ -14,8 +14,9 @@ func Enter() -> void:
 func Update(_delta : float) -> State:
 	# Checagem de possessão
 	if Input.is_action_just_pressed("interagir") and parent.pode_possuir:
-		parent.pode_possuir = false
-		return Possuido
+		if not parent.alquiLuz:
+			parent.pode_possuir = false
+			return Possuido
 	
 	return null
 
@@ -25,11 +26,11 @@ func FixedUpdate(_delta : float) -> State:
 	
 	if parent.ray_visao.is_colliding():
 		var c = parent.ray_visao.get_collider()
-		if c.is_in_group('Player'):
-			if c != null:
+		if c != null:
+			if c.is_in_group('Player'):
 				parent.target = c
 				return Persegue
-			return null
+			#return null
 	
 	if parent.is_on_floor() and esperando == false:
 		if parent.ray_parede.is_colliding() or !parent.ray_chao.is_colliding():

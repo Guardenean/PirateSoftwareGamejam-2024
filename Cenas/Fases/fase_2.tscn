@@ -1,14 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://ckbf1nhwk0biy"]
+[gd_scene load_steps=14 format=3 uid="uid://ckbf1nhwk0biy"]
 
 [ext_resource type="Script" path="res://Scripts/FaseController.gd" id="1_5bv21"]
 [ext_resource type="PackedScene" uid="uid://5wi4o6a7wko8" path="res://Cenas/Objetos/TochaParede.tscn" id="1_fd5ts"]
 [ext_resource type="PackedScene" uid="uid://dfhpmuog3d38j" path="res://Cenas/Fases/fase_3.tscn" id="2_bmpcf"]
 [ext_resource type="Texture2D" uid="uid://ew1l0p8tqp8d" path="res://Assets/Map/Tilemaps-export.png" id="2_or64x"]
 [ext_resource type="PackedScene" uid="uid://by6nrbvrnbjyb" path="res://Cenas/Personagens/PlayerV2.tscn" id="3_hqnj6"]
+[ext_resource type="PackedScene" uid="uid://bute6bo2od4o0" path="res://Cenas/Objetos/TochaChao.tscn" id="4_ab21p"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a1btu"]
 resource_name = "Props"
 scenes/1/scene = ExtResource("1_fd5ts")
+scenes/2/scene = ExtResource("4_ab21p")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqkm1"]
 texture = ExtResource("2_or64x")
@@ -419,6 +421,82 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetScenesCollectionSource_a1btu")
 sources/3 = SubResource("TileSetAtlasSource_aqkm1")
 
+[sub_resource type="Animation" id="Animation_slj78"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_p3n2k"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_atf05"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_thxuv"]
+_data = {
+"RESET": SubResource("Animation_slj78"),
+"fade_in": SubResource("Animation_p3n2k"),
+"fade_out": SubResource("Animation_atf05")
+}
+
 [node name="Fase_2" type="Node2D"]
 script = ExtResource("1_5bv21")
 numTochas = 2
@@ -433,10 +511,26 @@ layer_0/tile_data = PackedInt32Array(131073, 589827, 3, 196609, 589827, 3, 26214
 layer_1/name = "Chao"
 layer_1/tile_data = PackedInt32Array(655360, 458755, 4, 720896, 458755, 4, 786432, 458755, 4, 720897, 458755, 4, 786433, 458755, 4, 655362, 589827, 5, 720898, 458755, 4, 786434, 458755, 4, 720899, 458755, 4, 786435, 458755, 4, 720900, 458755, 4, 786436, 458755, 4, 720901, 458755, 4, 786437, 458755, 4, 655366, 458755, 3, 720902, 458755, 4, 786438, 458755, 4, 655367, 458755, 3, 720903, 458755, 4, 786439, 458755, 4, 655368, 458755, 3, 720904, 458755, 4, 786440, 458755, 4, 655369, 458755, 3, 720905, 458755, 4, 786441, 458755, 4, 655370, 458755, 3, 720906, 458755, 4, 786442, 458755, 4, 655371, 655363, 5, 720907, 458755, 4, 786443, 458755, 4, 655372, 458755, 4, 720908, 458755, 4, 786444, 458755, 4, 655373, 458755, 4, 720909, 458755, 4, 786445, 458755, 4, 655374, 458755, 4, 720910, 458755, 4, 786446, 458755, 4, 655375, 458755, 4, 720911, 458755, 4, 786447, 458755, 4, 655376, 458755, 4, 720912, 458755, 4, 786448, 458755, 4, 655377, 458755, 4, 720913, 458755, 4, 786449, 458755, 4, 655378, 458755, 4, 720914, 458755, 4, 786450, 458755, 4, 655379, 458755, 4, 720915, 458755, 4, 786451, 458755, 4, 655380, 458755, 4, 720916, 458755, 4, 786452, 458755, 4, 655381, 458755, 4, 720917, 458755, 4, 786453, 458755, 4, 655382, 458755, 4, 720918, 458755, 4, 786454, 458755, 4, 0, 458755, 4, 65536, 458755, 4, 131072, 458755, 4, 196608, 458755, 4, 262144, 458755, 4, 327680, 458755, 4, 393216, 458755, 4, 458752, 458755, 4, 524288, 458755, 4, 589824, 458755, 4, 1, 458755, 4, 65537, 458755, 4, 131073, 458755, 4, 196609, 458755, 4, 262145, 458755, 4, 327681, 458755, 4, 393217, 458755, 4, 458753, 458755, 4, 524289, 458755, 4, 2, 458755, 4, 65538, 458755, 4, 131074, 458755, 4, 20, 458755, 4, 65556, 458755, 4, 131092, 655363, 4, 21, 458755, 4, 65557, 458755, 4, 131093, 458755, 4, 196629, 458755, 4, 262165, 458755, 4, 327701, 458755, 4, 393237, 458755, 4, 458773, 458755, 4, 524309, 458755, 4, 589845, 458755, 4, 22, 458755, 4, 65558, 458755, 4, 131094, 458755, 4, 196630, 458755, 4, 262166, 458755, 4, 327702, 458755, 4, 393238, 458755, 4, 458774, 458755, 4, 524310, 458755, 4, 589846, 458755, 4, 3, 458755, 4, 65539, 458755, 4, 131075, 458755, 4, 4, 458755, 4, 65540, 458755, 4, 131076, 458755, 4, 5, 458755, 4, 65541, 458755, 4, 131077, 589827, 4, 6, 458755, 4, 65542, 458755, 4, 131078, 458755, 5, 7, 458755, 4, 65543, 458755, 4, 131079, 458755, 5, 8, 458755, 4, 65544, 458755, 4, 131080, 458755, 5, 9, 458755, 4, 65545, 458755, 4, 131081, 458755, 5, 10, 458755, 4, 65546, 458755, 4, 131082, 458755, 5, 11, 458755, 4, 65547, 458755, 4, 131083, 458755, 5, 12, 458755, 4, 65548, 458755, 4, 131084, 458755, 5, 13, 458755, 4, 65549, 458755, 4, 131085, 458755, 5, 14, 458755, 4, 65550, 458755, 4, 131086, 458755, 5, 15, 458755, 4, 65551, 458755, 4, 131087, 458755, 5, 16, 458755, 4, 65552, 458755, 4, 131088, 458755, 5, 17, 458755, 4, 65553, 458755, 4, 131089, 458755, 5, 18, 458755, 4, 65554, 458755, 4, 131090, 458755, 5, 19, 458755, 4, 65555, 458755, 4, 131091, 458755, 5, 655365, 458755, 3, 655364, 458755, 3, 655363, 458755, 3, 589825, 458755, 4, 655361, 458755, 4, 524304, 458755, 3, 524305, 458755, 3, 524306, 458755, 3, 524307, 458755, 3, 524308, 655363, 5, 589844, 458755, 4, 589843, 458755, 4, 589842, 458755, 4, 589841, 458755, 4, 589840, 458755, 4, 589826, 524291, 4, 524290, 524291, 4, 458754, 524291, 4, 393218, 524291, 4, 327682, 589827, 4, 262146, 458755, 4, 196610, 458755, 4, 458772, 393219, 4, 393236, 393219, 4, 327700, 393219, 4, 262164, 393219, 4, 196628, 393219, 4, 589836, 458755, 3, 589837, 655363, 5, 524302, 458755, 3, 589838, 458755, 4, 589835, 393219, 3, 524301, 393219, 3, 589839, 458755, 4, 524303, 458755, 3, 327683, 524291, 5, 262147, 589827, 4, 196611, 458755, 4, 262148, 524291, 5, 196612, 589827, 4, 196613, 524291, 5)
 layer_2/name = "Props"
-layer_2/tile_data = PackedInt32Array(393232, 2, 65536, 589832, 2, 65536, 458771, 983043, 2, 458770, 983043, 2, 589827, 983043, 2, 262149, 786435, 1, 327685, 786435, 1, 327684, 786435, 1, 393220, 786435, 1, 393219, 786435, 1, 458755, 786435, 2, 458756, 786435, 2, 393221, 786435, 2, 196627, 786435, 1, 262163, 786435, 1, 327699, 786435, 1, 196626, 786435, 1, 393235, 786435, 2, 262162, 786435, 2, 458766, 917507, 0, 458769, 917507, 0, 524294, 917507, 1, 589830, 917507, 2)
+layer_2/tile_data = PackedInt32Array(589832, 2, 65536, 458771, 983043, 2, 458770, 983043, 2, 589827, 983043, 2, 262149, 786435, 1, 327685, 786435, 1, 327684, 786435, 1, 393220, 786435, 1, 393219, 786435, 1, 458755, 786435, 2, 458756, 786435, 2, 393221, 786435, 2, 196627, 786435, 1, 262163, 786435, 1, 327699, 786435, 1, 196626, 786435, 1, 393235, 786435, 2, 262162, 786435, 2, 458766, 917507, 0, 458769, 917507, 0, 524294, 917507, 1, 589830, 917507, 2, 393231, 2, 131072, 458767, 851971, 2)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.435294, 0.435294, 0.435294, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_hqnj6")]
 position = Vector2(151, 306)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_thxuv")
+}
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+z_index = 5
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
