@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://x2onnpii8e5v"
+path="res://.godot/imported/bgm umbra.wav-0a6d9801fd82457fba0e6fab494a4715.sample"
+
+[deps]
+
+source_file="res://Assets/Musicas/bgm umbra.wav"
+dest_files=["res://.godot/imported/bgm umbra.wav-0a6d9801fd82457fba0e6fab494a4715.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

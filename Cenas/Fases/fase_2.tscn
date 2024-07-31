@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ckbf1nhwk0biy"]
+[gd_scene load_steps=17 format=3 uid="uid://ckbf1nhwk0biy"]
 
 [ext_resource type="Script" path="res://Scripts/FaseController.gd" id="1_5bv21"]
 [ext_resource type="PackedScene" uid="uid://5wi4o6a7wko8" path="res://Cenas/Objetos/TochaParede.tscn" id="1_fd5ts"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://ew1l0p8tqp8d" path="res://Assets/Map/Tilemaps-export.png" id="2_or64x"]
 [ext_resource type="PackedScene" uid="uid://by6nrbvrnbjyb" path="res://Cenas/Personagens/PlayerV2.tscn" id="3_hqnj6"]
 [ext_resource type="PackedScene" uid="uid://bute6bo2od4o0" path="res://Cenas/Objetos/TochaChao.tscn" id="4_ab21p"]
+[ext_resource type="PackedScene" uid="uid://0axcv4wohcdx" path="res://Cenas/Objetos/Espinhos.tscn" id="7_h3jkr"]
+[ext_resource type="PackedScene" uid="uid://besxuhqbgy8gx" path="res://Cenas/Personagens/AlquimistaLuz.tscn" id="8_qtqs2"]
+[ext_resource type="PackedScene" uid="uid://dpquilima6ir5" path="res://Cenas/Personagens/AlquimistaAzul.tscn" id="9_8ydkp"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a1btu"]
 resource_name = "Props"
@@ -534,3 +537,12 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Espinhos" parent="." instance=ExtResource("7_h3jkr")]
+position = Vector2(387, 270)
+
+[node name="AlquimistaLuz" parent="." instance=ExtResource("8_qtqs2")]
+position = Vector2(587, 246)
+
+[node name="AlquimistaAzul" parent="." instance=ExtResource("9_8ydkp")]
+position = Vector2(446, 245)

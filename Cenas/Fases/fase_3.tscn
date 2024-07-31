@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dfhpmuog3d38j"]
+[gd_scene load_steps=19 format=3 uid="uid://dfhpmuog3d38j"]
 
 [ext_resource type="Script" path="res://Scripts/FaseController.gd" id="1_0o1rn"]
 [ext_resource type="PackedScene" uid="uid://5wi4o6a7wko8" path="res://Cenas/Objetos/TochaParede.tscn" id="1_btklt"]
@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bhtulv2legc67" path="res://Cenas/Fases/fase_4.tscn" id="2_qknae"]
 [ext_resource type="PackedScene" uid="uid://by6nrbvrnbjyb" path="res://Cenas/Personagens/PlayerV2.tscn" id="3_fejcx"]
 [ext_resource type="PackedScene" uid="uid://bute6bo2od4o0" path="res://Cenas/Objetos/TochaChao.tscn" id="4_kdul3"]
+[ext_resource type="PackedScene" uid="uid://0axcv4wohcdx" path="res://Cenas/Objetos/Espinhos.tscn" id="7_uwiqv"]
+[ext_resource type="PackedScene" uid="uid://dpquilima6ir5" path="res://Cenas/Personagens/AlquimistaAzul.tscn" id="8_38ogh"]
+[ext_resource type="PackedScene" uid="uid://co8ogtifhwpff" path="res://Cenas/Personagens/AlquimistaVermelho.tscn" id="9_5e3qw"]
+[ext_resource type="PackedScene" uid="uid://bw383htxkpgv6" path="res://Cenas/Personagens/AlquimistaVerde.tscn" id="10_oxnui"]
+[ext_resource type="Texture2D" uid="uid://dwui1j0smteim" path="res://Assets/Map/Ambiente/Rituais/RitualAqua.png" id="11_xku7c"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a1btu"]
 resource_name = "Props"
@@ -517,7 +522,7 @@ layer_2/tile_data = PackedInt32Array(196617, 786435, 1, 262153, 786435, 1, 32768
 color = Color(0.435294, 0.435294, 0.435294, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_fejcx")]
-position = Vector2(151, 306)
+position = Vector2(114, 283)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -534,3 +539,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Espinhos" parent="." instance=ExtResource("7_uwiqv")]
+position = Vector2(184, 333)
+
+[node name="AlquimistaAzul" parent="." instance=ExtResource("8_38ogh")]
+position = Vector2(296, 348)
+
+[node name="AlquimistaVermelho" parent="." instance=ExtResource("9_5e3qw")]
+position = Vector2(499, 350)
+
+[node name="AlquimistaVerde" parent="." instance=ExtResource("10_oxnui")]
+position = Vector2(368, 186)
+
+[node name="RitualAqua" type="Sprite2D" parent="."]
+position = Vector2(507, 237)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("11_xku7c")
