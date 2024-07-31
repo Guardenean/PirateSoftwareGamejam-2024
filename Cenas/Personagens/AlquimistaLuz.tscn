@@ -1,7 +1,7 @@
 [gd_scene load_steps=92 format=3 uid="uid://besxuhqbgy8gx"]
 
 [ext_resource type="Script" path="res://Scripts/Inimigo/NeoAlquimista.gd" id="1_eiyh6"]
-[ext_resource type="PackedScene" uid="uid://c88vmfm3rrdon" path="res://Cenas/Personagens/AtaquesAlquimistas/AtaqueAlquimistaVerde.tscn" id="2_ruabd"]
+[ext_resource type="PackedScene" uid="uid://dxlgndsv45tpw" path="res://Cenas/Personagens/AtaquesAlquimistas/AtaqueAlquimistaLuz.tscn" id="2_m3ueg"]
 [ext_resource type="Texture2D" uid="uid://bpm1i81f5jdxw" path="res://Assets/Alquimistas/Alquimista_Luz/alquimatk1.3.png" id="3_o4jc6"]
 [ext_resource type="Texture2D" uid="uid://cuh0wvm2jqxg3" path="res://Assets/Alquimistas/Alquimista_Luz/AlquiLuz_move.png" id="4_1dq6w"]
 [ext_resource type="Texture2D" uid="uid://efbrcq7vu1np" path="res://Assets/Alquimistas/Alquimista_Luz/alqui_luzmorto.png" id="5_lyfvb"]
@@ -577,9 +577,11 @@ radius = 33.0151
 [node name="AlquimistaLuz" type="CharacterBody2D" groups=["Inimigo"]]
 collision_layer = 2
 script = ExtResource("1_eiyh6")
-distAtaqueX = 100.0
+normalSpeed = 10.0
+chaseSpeed = 70
+distAtaqueX = 200.0
 distAtaqueY = 30.0
-projetil = ExtResource("2_ruabd")
+projetil = ExtResource("2_m3ueg")
 alquiLuz = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://cniit1o7cm0td"]
+[gd_scene load_steps=19 format=3 uid="uid://bhn18mcghmna8"]
 
 [ext_resource type="Script" path="res://Scripts/FaseController.gd" id="1_fuvxc"]
-[ext_resource type="PackedScene" uid="uid://cyp0ior8m21qf" path="res://Cenas/Fases/fase_9.tscn" id="2_7we0g"]
+[ext_resource type="PackedScene" uid="uid://kaslr7ym1lsg" path="res://Cenas/Fases/fase_10.tscn" id="2_ippbv"]
 [ext_resource type="PackedScene" uid="uid://5wi4o6a7wko8" path="res://Cenas/Objetos/TochaParede.tscn" id="3_61o7u"]
 [ext_resource type="PackedScene" uid="uid://bute6bo2od4o0" path="res://Cenas/Objetos/TochaChao.tscn" id="4_p7q2y"]
 [ext_resource type="Texture2D" uid="uid://ew1l0p8tqp8d" path="res://Assets/Map/Tilemaps-export.png" id="5_8q5x1"]
@@ -505,7 +505,7 @@ _data = {
 [node name="Fase_8" type="Node2D"]
 script = ExtResource("1_fuvxc")
 numTochas = 6
-proximaCena = ExtResource("2_7we0g")
+proximaCena = ExtResource("2_ippbv")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fteef")

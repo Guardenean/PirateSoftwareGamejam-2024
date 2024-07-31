@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://djfhhpammrmbo"]
+[gd_scene load_steps=13 format=3 uid="uid://djfhhpammrmbo"]
 
 [ext_resource type="Script" path="res://Scripts/FaseController.gd" id="1_8e7i0"]
 [ext_resource type="Texture2D" uid="uid://ew1l0p8tqp8d" path="res://Assets/Map/Tilemaps-export.png" id="1_coam8"]
 [ext_resource type="PackedScene" uid="uid://5wi4o6a7wko8" path="res://Cenas/Objetos/TochaParede.tscn" id="2_g62cx"]
 [ext_resource type="PackedScene" uid="uid://ckbf1nhwk0biy" path="res://Cenas/Fases/fase_2.tscn" id="2_x2fsn"]
 [ext_resource type="PackedScene" uid="uid://by6nrbvrnbjyb" path="res://Cenas/Personagens/PlayerV2.tscn" id="3_tr4u3"]
-[ext_resource type="PackedScene" uid="uid://besxuhqbgy8gx" path="res://Cenas/Personagens/AlquimistaLuz.tscn" id="6_aofwt"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_a1btu"]
 resource_name = "Props"
@@ -533,6 +532,3 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
-
-[node name="AlquimistaLuz" parent="." instance=ExtResource("6_aofwt")]
-position = Vector2(468, 316)

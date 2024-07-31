@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://ht6dc05dg6ok"]
+[gd_scene load_steps=16 format=3 uid="uid://07osnf4ubxiy"]
 
 [ext_resource type="Script" path="res://Scripts/FaseController.gd" id="1_mgvnw"]
-[ext_resource type="PackedScene" uid="uid://cniit1o7cm0td" path="res://Cenas/Fases/fase_8.tscn" id="2_n2ll1"]
+[ext_resource type="PackedScene" path="res://Cenas/Fases/fase_8.tscn" id="2_n2ll1"]
 [ext_resource type="PackedScene" uid="uid://5wi4o6a7wko8" path="res://Cenas/Objetos/TochaParede.tscn" id="3_4j77v"]
 [ext_resource type="PackedScene" uid="uid://bute6bo2od4o0" path="res://Cenas/Objetos/TochaChao.tscn" id="4_metfs"]
 [ext_resource type="Texture2D" uid="uid://ew1l0p8tqp8d" path="res://Assets/Map/Tilemaps-export.png" id="5_oflgs"]

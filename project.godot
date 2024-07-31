@@ -18,6 +18,7 @@ config/icon="res://Scripts/Archived/Coisinhas/Luz.png"
 [autoload]
 
 GameController="*res://Scripts/GameController.gd"
+Bgm="*res://Cenas/bgm.tscn"
 
 [display]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://0axcv4wohcdx"]
 
-[ext_resource type="Script" path="res://Cenas/Objetos/Espinhos.gd" id="1_pd5a2"]
+[ext_resource type="Script" path="res://Scripts/Espinhos.gd" id="1_pd5a2"]
 [ext_resource type="Texture2D" uid="uid://4tpbdaj23gpo" path="res://Assets/Map/Ambiente/Armadilhas/Garras.png" id="2_t821r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kd1h2"]
